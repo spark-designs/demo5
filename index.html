@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>James Sterling | Coastal Real Estate</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #F8F7F4;
+            color: #333333;
+        }
+        .font-serif {
+            font-family: 'DM Serif Display', serif;
+        }
+        .hero-bg-coastal {
+            background-image: linear-gradient(to top, rgba(248, 247, 244, 1) 0%, rgba(248, 247, 244, 0.5) 50%, rgba(248, 247, 244, 0) 100%), url('https://images.unsplash.com/photo-1594411448208-a83497b78560?q=80&w=2899&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+        .accent-blue {
+            color: #5B86A4;
+        }
+        .btn-primary {
+            background-color: #5B86A4;
+            color: #FFFFFF;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #4A6B83;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(91, 134, 164, 0.2);
+        }
+        .btn-secondary {
+            background-color: transparent;
+            color: #5B86A4;
+            border: 1px solid #5B86A4;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background-color: #5B86A4;
+            color: #FFFFFF;
+        }
+        nav.scrolled {
+            background-color: rgba(248, 247, 244, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e5e2dc;
+        }
+        .swiper-pagination-bullet-active {
+            background: #5B86A4 !important;
+        }
+        .form-input {
+            background-color: #FFFFFF;
+            border: 1px solid #D1D5DB;
+            color: #333333;
+        }
+        .form-input:focus {
+            border-color: #5B86A4;
+            box-shadow: 0 0 0 2px rgba(91, 134, 164, 0.2);
+            outline: none;
+        }
+        .sold-card {
+            background-color: #FFFFFF;
+            border: 1px solid #e5e2dc;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .sold-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="fixed w-full top-0 z-50 transition-all duration-300">
+        <nav id="navbar" class="transition-all duration-300">
+            <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-24">
+                    <div class="flex items-center">
+                        <a href="#" class="text-2xl font-serif tracking-wider text-gray-800">James Sterling</a>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="ml-10 flex items-baseline space-x-6">
+                            <a href="#about" class="px-3 py-2 rounded-md text-sm font-medium hover:accent-blue transition-colors">About</a>
+                            <a href="#reviews" class="px-3 py-2 rounded-md text-sm font-medium hover:accent-blue transition-colors">Reviews</a>
+                            <a href="#sold" class="px-3 py-2 rounded-md text-sm font-medium hover:accent-blue transition-colors">Sold</a>
+                            <a href="#contact" class="px-3 py-2 rounded-md text-sm font-medium hover:accent-blue transition-colors">Contact</a>
+                        </div>
+                    </div>
+                    <div class="md:hidden">
+                        <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md hover:bg-gray-100 focus:outline-none">
+                             <svg class="h-6 w-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="mobile-menu" class="md:hidden hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white">
+                    <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium hover:accent-blue">About</a>
+                    <a href="#reviews" class="block px-3 py-2 rounded-md text-base font-medium hover:accent-blue">Reviews</a>
+                    <a href="#sold" class="block px-3 py-2 rounded-md text-base font-medium hover:accent-blue">Sold</a>
+                    <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium hover:accent-blue">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg-coastal min-h-screen flex flex-col justify-center items-center text-center pt-24">
+        <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8" data-aos="fade-up">
+            <h1 class="font-serif text-4xl sm:text-5xl lg:text-7xl font-bold leading-tight mb-4 text-gray-800">
+                Your Coastal Dream Home<br><span class="accent-blue">Awaits</span>
+            </h1>
+            <p class="text-lg md:text-xl mb-10 max-w-3xl mx-auto text-gray-500">
+                James Sterling — Your guide to Houston's most serene and luxurious properties.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                 <a href="mailto:James.sterling@houstonluxury.com" class="inline-flex items-center justify-center rounded-full px-6 py-3 font-bold text-base btn-primary w-full sm:w-auto">
+                    <svg class="h-5 w-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" /></svg>
+                    Email Me
+                </a>
+                <a href="tel:1-713-555-1234" class="inline-flex items-center justify-center rounded-full px-6 py-3 font-bold text-base btn-secondary w-full sm:w-auto">
+                    <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25z" /></svg>
+                    Call Me
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 sm:py-32 bg-white">
+        <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-12 gap-12 items-center">
+            <div class="md:col-span-5" data-aos="fade-right">
+                <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=2789&auto=format&fit=crop" alt="James Sterling" class="rounded-lg shadow-xl w-full h-auto object-cover">
+            </div>
+            <div class="md:col-span-7" data-aos="fade-left" data-aos-delay="100">
+                 <h2 class="font-serif text-3xl lg:text-5xl font-bold mb-6 text-gray-800">A Passion for People,<br>a <span class="accent-blue">Dedication to Results</span></h2>
+                 <p class="text-gray-500 text-lg mb-6 leading-relaxed">With over 15 years serving the Houston luxury market, I've built my career on integrity, transparency, and unparalleled market knowledge. For me, real estate is more than transactions; it's about building lasting relationships and helping you find a place you're proud to call home.</p>
+                 <p class="text-gray-500 text-lg mb-8 leading-relaxed">Whether a first-time homebuyer or a seasoned investor, I provide a seamless, personalized experience, guiding you through every step with expert advice and unwavering support.</p>
+                 <a href="#contact" class="inline-block rounded-full px-8 py-3 font-bold btn-primary">Let's Work Together</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section id="reviews" class="py-24 sm:py-32 bg-F8F7F4">
+        <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="font-serif text-3xl lg:text-5xl font-bold text-gray-800">Why Clients <span class="accent-blue">Love Working With Me</span></h2>
+            </div>
+            <div class="swiper-container testimonial-swiper" data-aos="fade-up" data-aos-delay="100">
+                <div class="swiper-wrapper">
+                     <!-- Slides -->
+                     <div class="swiper-slide p-2">
+                        <div class="bg-white rounded-lg shadow-lg p-8 h-full text-center">
+                            <p class="text-lg text-gray-600 leading-relaxed">"James was an absolute pleasure to work with. Her attention to detail and market knowledge were instrumental in finding our perfect home. We couldn't be happier!"</p>
+                            <div class="mt-6 pt-6 border-t border-gray-200">
+                                <p class="font-bold text-lg text-gray-800">The Johnson Family</p>
+                                <p class="text-gray-500">Homeowners in The Woodlands</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide p-2">
+                         <div class="bg-white rounded-lg shadow-lg p-8 h-full text-center">
+                            <p class="text-lg text-gray-600 leading-relaxed">"As first-time homebuyers, we were nervous. James guided us through every step with patience and expertise. She turned a stressful process into an exciting journey!"</p>
+                            <div class="mt-6 pt-6 border-t border-gray-200">
+                                <p class="font-bold text-lg text-gray-800">Michael & Sarah Chen</p>
+                                <p class="text-gray-500">Owners in River Oaks</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide p-2">
+                        <div class="bg-white rounded-lg shadow-lg p-8 h-full text-center">
+                            <p class="text-lg text-gray-600 leading-relaxed">"Selling our home with James was the best decision. She secured a top-dollar offer faster than we expected. Her negotiation skills are second to none."</p>
+                            <div class="mt-6 pt-6 border-t border-gray-200">
+                                <p class="font-bold text-lg text-gray-800">David Rodriguez</p>
+                                <p class="text-gray-500">Seller in Memorial</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination mt-12 relative"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recently Sold -->
+    <section id="sold" class="py-24 sm:py-32 bg-white">
+        <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="font-serif text-3xl lg:text-5xl font-bold text-gray-800">A Track Record of <span class="accent-blue">Success</span></h2>
+                <p class="mt-4 text-lg text-gray-500">Explore some of the stunning properties I've recently sold.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Cards -->
+                 <div class="rounded-lg overflow-hidden sold-card" data-aos="fade-up">
+                    <img class="w-full h-64 object-cover" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2940&auto=format&fit=crop" alt="Luxury Home">
+                    <div class="p-6">
+                        <h3 class="font-serif text-2xl font-bold text-gray-800 mb-2">The Woodlands Villa</h3>
+                        <p class="accent-blue mb-4 text-xl font-semibold">Sold for $2,450,000</p>
+                        <div class="flex items-center text-gray-500 text-sm space-x-4">
+                            <span>4 Beds</span><span class="opacity-50">|</span><span>5 Baths</span><span class="opacity-50">|</span><span>4,800 sqft</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="rounded-lg overflow-hidden sold-card" data-aos="fade-up" data-aos-delay="100">
+                    <img class="w-full h-64 object-cover" src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=2940&auto=format&fit=crop" alt="Modern House">
+                    <div class="p-6">
+                        <h3 class="font-serif text-2xl font-bold text-gray-800 mb-2">River Oaks Estate</h3>
+                        <p class="accent-blue mb-4 text-xl font-semibold">Sold for $3,100,000</p>
+                        <div class="flex items-center text-gray-500 text-sm space-x-4">
+                            <span>5 Beds</span><span class="opacity-50">|</span><span>6 Baths</span><span class="opacity-50">|</span><span>5,500 sqft</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="rounded-lg overflow-hidden sold-card" data-aos="fade-up" data-aos-delay="200">
+                    <img class="w-full h-64 object-cover" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2940&auto=format&fit=crop" alt="Suburban Home">
+                    <div class="p-6">
+                        <h3 class="font-serif text-2xl font-bold text-gray-800 mb-2">Memorial Modern</h3>
+                        <p class="accent-blue mb-4 text-xl font-semibold">Sold for $1,980,000</p>
+                        <div class="flex items-center text-gray-500 text-sm space-x-4">
+                            <span>4 Beds</span><span class="opacity-50">|</span><span>4 Baths</span><span class="opacity-50">|</span><span>4,200 sqft</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 sm:py-32 bg-[#F8F7F4]">
+        <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center" data-aos="fade-up">
+                 <h2 class="font-serif text-3xl lg:text-5xl font-bold mb-4 text-gray-800">Start Your <span class="accent-blue">Next Chapter</span></h2>
+                 <p class="text-lg text-gray-500 mb-8 max-w-2xl mx-auto">Reach out directly or fill out the form below. I'll personally get back to you within 24 hours.</p>
+            </div>
+             <div class="flex flex-col sm:flex-row justify-center items-center space-y-6 sm:space-y-0 sm:space-x-8 mb-12 text-gray-600" data-aos="fade-up">
+                <a href="mailto:James.sterling@houstonluxury.com" class="flex items-center text-lg hover:accent-blue transition-colors">
+                    <svg class="h-6 w-6 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" /></svg>
+                    James.sterling@houstonluxury.com
+                </a>
+                <a href="tel:1-713-555-1234" class="flex items-center text-lg hover:accent-blue transition-colors">
+                     <svg class="w-6 h-6 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25z" /></svg>
+                    (713) 555-1234
+                </a>
+            </div>
+            <div class="max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                <form action="#" method="POST" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <input type="text" name="name" required class="block w-full rounded-md py-3 px-4 form-input" placeholder="Full Name">
+                        <input type="email" name="email" required class="block w-full rounded-md py-3 px-4 form-input" placeholder="Email Address">
+                    </div>
+                    <div>
+                        <input type="tel" name="phone" class="block w-full rounded-md py-3 px-4 form-input" placeholder="Phone Number (Optional)">
+                    </div>
+                    <div>
+                        <textarea name="message" rows="5" required class="block w-full rounded-md py-3 px-4 form-input" placeholder="How can I help you achieve your real estate goals?"></textarea>
+                    </div>
+                    <div class="text-center pt-4">
+                        <button type="submit" class="inline-block w-full sm:w-auto rounded-full px-12 py-4 font-bold btn-primary text-lg">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-white text-gray-500">
+        <div class="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8">
+                 <a href="#" class="font-serif text-2xl font-bold tracking-wider text-gray-800">James Sterling</a>
+                 <p class="mt-2 text-gray-500">Houston's Premier Coastal Real Estate Agent.</p>
+            </div>
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="#about" class="hover:accent-blue transition-colors">About</a>
+                <a href="#reviews" class="hover:accent-blue transition-colors">Reviews</a>
+                <a href="#sold" class="hover:accent-blue transition-colors">Sold</a>
+                <a href="#contact" class="hover:accent-blue transition-colors">Contact</a>
+            </div>
+            <div class="mt-8 border-t border-gray-200 pt-8 text-center text-sm">
+                <p>&copy; 2025 James Sterling Real Estate. Designed with Passion.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 700, once: true, offset: 50 });
+
+        const navbar = document.getElementById('navbar');
+        window.onscroll = function () {
+            if (window.pageYOffset > 50) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
+        };
+
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.querySelectorAll('#mobile-menu a');
+        mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        navLinks.forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+        new Swiper('.testimonial-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: { delay: 3500, disableOnInteraction: false },
+            pagination: { el: '.swiper-pagination', clickable: true },
+            breakpoints: { 768: { slidesPerView: 2, spaceBetween: 40 } }
+        });
+    </script>
+</body>
+</html>
